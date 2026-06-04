@@ -1,0 +1,50 @@
+1class Solution {
+2public:
+3bool check(int i,vector<vector<int>>& graph ,int color[])
+4{
+5        
+6      
+7       
+8        queue<int>q;
+9        q.push(i);
+10        color[i]=0;
+11        while(!q.empty())
+12        {
+13            int node=q.front();
+14            q.pop();
+15            for(auto it:graph[node])
+16            {
+17                if(color[it]==-1)
+18                {
+19                    color[it]=!color[node];
+20                    q.push(it);
+21                }
+22                //koi pahle se color krke chla gya hai
+23                else if(color[it]==color[node])
+24                {
+25                    return false;
+26                }
+27            }
+28        }
+29
+30        
+31        return true;
+32}
+33    bool isBipartite(vector<vector<int>>& graph) {
+34          int n=graph.size();
+35         int color[n];
+36        for(int i=0;i<n;i++)
+37        {
+38            color[i]=-1;
+39        }
+40        for(int i=0;i<n;i++)
+41        {
+42            if(color[i]==-1)
+43            {
+44                if(check(i,graph,color)==false) return false;
+45
+46            }
+47        }
+48         return true;
+49    }
+50};
