@@ -33,10 +33,10 @@ public:
                 return mid;
             }else if(mountainArr.get(mid)>target)
             {
-                l=mid+1;
+                r=mid-1;
             }else
             {
-                r=mid-1;
+                l=mid+1;
             }
         }
         return -1;
@@ -52,10 +52,10 @@ public:
             }else if(mountainArr.get(mid)>target)
             {
              
-                  r=mid-1;
+                  l=mid+1;
             }else
             {
-                  l=mid+1;
+                  r=mid-1;
             }
         }
         return -1;
